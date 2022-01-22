@@ -10,6 +10,7 @@ CREATE_USER_URL = reverse('user:create')
 TOKEN_URL = reverse('user:token')
 ME_URL = reverse('user:me')
 
+
 def create_user(**params):
     return get_user_model().objects.create_user(**params)
 
@@ -111,8 +112,8 @@ class PrivateUserApiTests(TestCase):
     """Test API requests that require authentication"""
     def setUp(self):
         self.user = create_user(
-            email='test@gmail.com'
-            password='123456'
+            email='test@gmail.com',
+            password='123456',
             name='test'
         )
         self.client = APIClient()
